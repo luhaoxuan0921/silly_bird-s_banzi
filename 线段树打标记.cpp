@@ -6,7 +6,7 @@ const int N=200010;
 int n,q;
 ll a[N];
 
-struct Node{
+struct Sgtr{
 	ll v,t;
 }s[4*N];
 
