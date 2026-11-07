@@ -1,12 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-using ll=long long;
-const int N=200010;
+const int N=2e5+10;
 
 int n;
 bool vis[N];
-vector<int> e[N],erev[N];
-vector<int> out,c;
+vector<int> e[N],erev[N],out,c;
 
 void dfs1(int u){
 	vis[u]=true;
@@ -30,7 +28,7 @@ int main(){
 	}
 	for(int i=1;i<=n;i++)
 		vis[i]=false;
-	for(int i=n-1;i>=0;i--) if(!vis[i]){
+	for(int i=n-1;i>=0;i--) if(!vis[out[i]]){
 		c.clear();
 		dfs2(out[i]);
 	}

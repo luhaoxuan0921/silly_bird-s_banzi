@@ -1,10 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-using ll=long long;
-const int N=200010;
+const int N=2e5+10;
 
-vector<pair<int,int>> e[N];
 int dfn[N],low[N],idx,n,m;
+vector<pair<int,int>> e[N];
 vector<int> bri;
 
 void dfs(int u,int id){
@@ -21,15 +20,5 @@ void dfs(int u,int id){
 }
 
 int main(){
-	scanf("%d%d",&n,&m);
-	for(int i=1,u,v;i<=m;i++){
-		scanf("%d%d",&u,&v);
-		e[u].push_back({v,i});
-		e[v].push_back({u,i});
-	}
-	dfs(1,0);
-	sort(bri.begin(),bri.end());
-	printf("%d\n",(int)bri.size());
-	for(auto x:bri) printf("%d ",x);
-	puts("");
+
 }

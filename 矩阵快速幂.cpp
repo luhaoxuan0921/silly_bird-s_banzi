@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;
-const int mod=7+1e9;
+const int mod=1e9+7;
 
 struct Mtrx{
 	int x,y;
-	ll a[2][2];
+	vector<vector<int>> a;
 	Mtrx operator * (const Mtrx& b){
 		if(y!=b.x){
 			printf("RE!\n%d %d %d %d\n",x,y,b.x,b.y);
@@ -13,6 +13,7 @@ struct Mtrx{
 		}
 		Mtrx tmp;
 		tmp.x=x,tmp.y=b.y;
+		tmp.a=vector<vector<int>>(x,vector<int>(b.y));
 		for(int i=0;i<x;i++){
 			for(int j=0;j<b.y;j++){
 				tmp.a[i][j]=0;

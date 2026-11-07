@@ -1,14 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int N=50005;
+const int N=5e4+5;
+struct Trie{
+	int so[2],cnt;
+};
 
 int n,a[N],ans;
 int b[N],p[N];
 int l1[N],l2[N],r1[N],r2[N];
 int idx,rt[32*N];
-struct Trie{
-	int so[2],cnt;
-}tr[32*N];
+Trie tr[32*N];
 
 int ins(int old,int val){
 	int rtn=++idx;

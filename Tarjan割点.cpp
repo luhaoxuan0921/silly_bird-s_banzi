@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-using ll=long long;
-const int N=200010;
+const int N=2e5+10;
 
 int dfn[N],low[N],idx,n,m,sz;
 vector<int> e[N];

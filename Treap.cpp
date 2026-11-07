@@ -1,13 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int N=100010;
-mt19937 mrand(1);
-
-struct Node{
+const int N=2e5+10;
+mt19937 mrand(0xacacacacu);
+struct Trp{
 	int val,p,sz,l,r;
-}t[N];
+};
 
 int cur,rt,n;
+Trp t[N];
 
 void upd(int p){
 	t[p].sz=1;
@@ -17,11 +17,11 @@ void upd(int p){
 
 int newnode(int a){
 	++cur;
-	t[cur]=(Node){a,(int)mrand(),1,0,0};
+	t[cur]=(Trp){a,(int)mrand(),1,0,0};
 	return cur;
 }
 
-void split(int p,int key,int &l,int &r){
+void split(int p,int key,int& l,int& r){
 	if(!p){
 		l=r=0;
 		return;
@@ -37,7 +37,7 @@ void split(int p,int key,int &l,int &r){
 }
 
 int merge(int l,int r){
-	if((!l)||(!r))
+	if(!l||!r)
 		return l+r;
 	if(t[l].p<t[r].p){
 		t[l].r=merge(t[l].r,r);

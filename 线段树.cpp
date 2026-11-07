@@ -1,12 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int N=200010;
+struct Sgtr{int v;};
 
 int n,q,a[N];
-
-struct Sgtr{
-	int v;
-}s[4*N];
+Sgtr s[4*N];
 
 void upp(int id){
 	s[id].v=min(s[2*id].v,s[2*id+1].v);
@@ -34,17 +32,15 @@ void change(int id,int l,int r,int u,int us){
 	upp(id);
 }
 
-int ques(int id,int l,int r,int ql,int qr){
+int query(int id,int l,int r,int ql,int qr){
 	if(l==ql&&r==qr)
 		return s[id].v;
-	
 	int mid=(l+r)>>1;
 	if(qr<=mid)
-		return ques(2*id,l,mid,ql,qr);
-	if(ql>mid)
-		return ques(2*id+1,mid+1,r,ql,qr);
-
-	return min(ques(2*id,l,mid,ql,mid),ques(2*id+1,mid+1,r,mid+1,qr));
+		return query(2*id,l,mid,ql,qr);
+	else if(ql>mid)
+		return query(2*id+1,mid+1,r,ql,qr);
+	return min(query(2*id,l,mid,ql,mid),query(2*id+1,mid+1,r,mid+1,qr));
 }
 
 int main(){
@@ -63,7 +59,7 @@ int main(){
 		}else{
 			int l,r;
 			scanf("%d%d",&l,&r);
-			auto ans=ques(1,1,n,l,r);
+			auto ans=query(1,1,n,l,r);
 			printf("%d\n",ans);
 		}
 	}
