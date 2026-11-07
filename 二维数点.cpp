@@ -1,12 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-using ll=long long;
-const int N=200010;
+const int N=2e5+10;
 inline int lb(int& x){return x&(-x);}
 
+int n,q,m,c[N],ans[N];
 vector<int> vx;
 vector<array<int,4>> ev;
-int n,q,m,c[N],ans[N];
 
 void add(int x,int y){
 	while(x<=n){

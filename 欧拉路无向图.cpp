@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int N=200010;
-const int M=200010;
+const int N=2e5+10;
+const int M=2e5+10;
 
 vector<array<int,2>> e[N];
 int n,m,l,cnt=1,f[N],d[N],c[M];
@@ -31,8 +31,7 @@ void Euler(){
 	}
 	if(!x){
 		for(int i=1;i<=n;i++){
-			if(d[i])
-				x=i;
+			if(d[i]) x=i;
 		}
 	}
 	l=0;

@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-using ll=long long;
-const int N=200010;
+const int N=2e5+10;
 
 int dfn[N],low[N],bel[N],cnt,idx;
 bool ins[N];
@@ -33,7 +32,6 @@ void dfs(int u){
 			stk.pop();
 			if(v==u) break;
 		}
-		sort(c.begin(),c.end());
 		scc.push_back(c);
 	}
 }
